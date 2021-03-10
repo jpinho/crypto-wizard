@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "5344b570-6dc8-45ec-8569-9351fd6f0472",
+		"name": "CryptoWizard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/price | Get BPI Reading",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/price",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"price"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/bet | Create Bet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"jpinho\",\n    \"betHigh\": true,\n    \"price\": {\n        \"currency\": \"EUR\",\n        \"rate\": 45482.3495,\n        \"sign\": \"2ce9682c60309f8f56801ca534ff937a543f29fada984180085af99b28fab87b\",\n        \"time\": \"2021-03-09T18:19:45.027Z\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/bet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"bet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/bet | Evaluate Bet",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/bet/jpinho/evaluate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"bet",
+						"jpinho",
+						"evaluate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/user | Get User Score",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/user/jpinho/score",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"jpinho",
+						"score"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
