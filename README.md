@@ -10,6 +10,11 @@ This repo contains:
 ![architecture](/doc/arch/architecture-highlevel.jpg)
 
 Check other API Flow Diagrams [here](/doc/architecture.md)
+
+### API Docs
+
+- [Bet Service Postman Collection](CryptoWizard.postman_collection.json)
+
 ## Getting started
 
 ### Game Rules
@@ -25,14 +30,45 @@ Check other API Flow Diagrams [here](/doc/architecture.md)
 
 ### Running the entire project
 
+#### Environment Variables
+
+When using `docker compose` the only thing you will need to do is update this [/services/bet/.env](/services/bet/.env).
+More specifically, you willl need to add your AWS secrets for AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
+
+Upon request I can share my instance keys. But in case you want to use your own instance, then you will need to:
+
+- Setup an AWS User with DynamoDB FullAccess
+- Create 2 tables on DynamoDB: `active-bets` and `score` both with key `userId`
+- Copy you AWS keys aforementioned file and you are done
+
+Once this little step around env vars is resolved, the commands below will get your started:
+
 ```bash
 docker compose up
 open http://localhost:5000
 ```
 
-### API Docs
+To run the services independently in dev mode:
 
-- [Bet Service Postman Collection](CryptoWizard.postman_collection.json)
+- CryptoWeb (webapp)
+
+  ```bash
+  cd /client/crypto-web
+  npm i
+  npm run dev
+  ```
+
+- BetService (service)
+
+  ```bash
+  cd /services/bet
+  npm i
+  npm run dev
+  ```
+
+#### Unit Tests
+
+To run the unit tests on any project just type `npm test`.
 
 ### Constraints & Assumptions
 
@@ -67,7 +103,7 @@ open http://localhost:5000
 - Unit Testing
   - **Jest & Testing Library**, both dismiss any introductions
 
-### Look & Feel
+### UI Look & Feel
 
 #### Signup
 ![signup](doc/signup.png)
