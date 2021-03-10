@@ -36,6 +36,7 @@ describe('domain: bet', () => {
             '49f410800f9d36f6aab02ac8bbf65f0ee512b209359050993319aa3855af4266',
           time: '2021-03-09T23:09:41.711Z',
         },
+        betTime: '2021-03-09T23:09:41.711Z'
       };
 
       mocked(getActiveBet).mockResolvedValueOnce(activeBet);
@@ -59,6 +60,7 @@ describe('domain: bet', () => {
             '49f410800f9d36f6aab02ac8bbf65f0ee512b209359050993319aa3855af4266',
           time: '2021-03-09T23:09:41.711Z',
         },
+        betTime: '2021-03-09T23:09:41.711Z'
       };
 
       mocked(getActiveBet).mockResolvedValue(activeBet);
@@ -86,6 +88,7 @@ describe('domain: bet', () => {
               '49f410800f9d36f6aab02ac8bbf65f0ee512b209359050993319aa3855af4266',
             time: '2021-03-09T23:09:41.711Z',
           },
+          betTime: '2021-03-09T23:09:41.711Z',
           scored,
         };
 
@@ -129,6 +132,7 @@ describe('domain: bet', () => {
               '49f410800f9d36f6aab02ac8bbf65f0ee512b209359050993319aa3855af4266',
             time: '2021-03-09T23:09:41.711Z',
           },
+          betTime: '2021-03-09T23:09:41.711Z'
         };
 
         mocked(getActiveBet).mockResolvedValue(activeBet);
@@ -151,7 +155,5 @@ describe('domain: bet', () => {
         });
       }
     );
-
-    it('should update the user score with -1 when the user guessed wrong', async () => {});
   });
 });

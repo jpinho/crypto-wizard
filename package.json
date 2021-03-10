@@ -2,6 +2,9 @@
   "name": "crypto-wizard",
   "version": "1.0.0",
   "description": "A mono repo for crypto wizard clients and services.",
+  "repository": {
+    "url": "https://github.com/jpinho/crypto-wizard.git"
+  },
   "author": "João Pinho",
   "license": "ISC",
   "devDependencies": {

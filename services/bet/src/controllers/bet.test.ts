@@ -22,6 +22,7 @@ const goodBet: UserBet = {
     sign: '49f410800f9d36f6aab02ac8bbf65f0ee512b209359050993319aa3855af4266',
     time: '2021-03-09T23:09:41.711Z',
   },
+  betTime: '2021-03-09T23:09:41.711Z',
 };
 
 const badSignatureBet: UserBet = {
@@ -33,6 +34,7 @@ const badSignatureBet: UserBet = {
     sign: '49f410800f9d36f6aab02ac8bbf65f0ee512b209359050993319aa3855af4266',
     time: '2021-03-09T23:09:41.711Z',
   },
+  betTime: '2021-03-09T23:09:41.711Z',
 };
 
 describe('/api/bet', () => {
@@ -55,6 +57,7 @@ describe('/api/bet', () => {
           sign: 'badsignature',
           time: '2021-03-09T23:09:41.711Z',
         },
+        betTime: '2021-03-09T23:09:41.711Z'
       };
       await request(app)
         .post('/api/bet')
@@ -79,7 +82,9 @@ describe('/api/bet', () => {
       await request(app)
         .post('/api/bet')
         .send(badSignatureBet)
-        .expect(500, { message: 'Internal failure while placing bet for user mcgregor' });
+        .expect(500, {
+          message: 'Internal failure while placing bet for user mcgregor',
+        });
     });
   });
 });

@@ -9,6 +9,7 @@ export interface UserBet {
   betHigh: boolean;
   price: PriceReading;
   scored?: boolean;
+  betTime: string;
 }
 
 export interface BetResult {
@@ -65,7 +66,7 @@ export async function evaluteActiveBet(userId: string): Promise<BetResult | null
     throw new BetServiceException(`No active bets in play for ${userId}`);
   }
 
-  const readingElapsedTimeSecs = (Date.now() - new Date(activeBet.price.time).getTime()) / 1000;
+  const readingElapsedTimeSecs = (Date.now() - new Date(activeBet.betTime).getTime()) / 1000;
 
   if (readingElapsedTimeSecs <= 60) {
     const checkBackInSecs = Math.round(60 - readingElapsedTimeSecs);

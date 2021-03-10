@@ -21,8 +21,8 @@ This repo contains:
 ### Running the entire project
 
 ```bash
-docker-compose up
-open http://localhost:3000
+chmod +x scripts/run.sh
+./scripts/run.sh
 ```
 
 ### API Docs
@@ -58,7 +58,6 @@ open http://localhost:3000
 
 - Crypto Web App
   - **Svelte and Sapper**, the fastest and best performance toolset these days to bootstrap a micro-frontend with ease
-  - **Tailwind**, a superb way to rapidly build modern websites without ever leaving your HTML
 
 - Unit Testing
   - **Jest & Testing Library**, both dismiss any introductions
