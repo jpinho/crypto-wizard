@@ -1,0 +1,34 @@
+{
+  "name": "bet-service",
+  "version": "1.0.0",
+  "description": "This service is responsible for dealing with user's bets",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node src/app.ts --watch src",
+    "start": "tsc && node dist/app.js",
+    "tdd": "npm run test -- --watch --verbose",
+    "test": "LOG_LEVEL=silent jest --runInBand",
+    "test:coverage": "npm run test -- --coverage"
+  },
+  "author": "João Pinho",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.32",
+    "@types/supertest": "^2.0.10",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "ts-jest": "^26.5.3",
+    "ts-node": "^9.1.1",
+    "tslint": "^5.12.1",
+    "typescript": "^4.2.3",
+    "supertest": "^6.1.1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.8.0",
+    "aws-sdk": "^2.859.0",
+    "cross-fetch": "^3.0.6",
+    "express": "^4.16.4"
+  }
+}

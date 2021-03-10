@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "target": "es2018",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "module": "commonjs",
+    "outDir": "dist",
+    "sourceMap": false,
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["jest", "node"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts", "typings"]
+}
