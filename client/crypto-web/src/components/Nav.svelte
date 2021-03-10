@@ -1,8 +1,9 @@
 <script>
-  import { onMount } from 'svelte';
-  import { getScore } from '../services/BetService';
+  import { getContext, onMount } from 'svelte';
 
   let user;
+  let score = getContext('score');
+
   onMount(() => {
     user = localStorage.getItem('user');
   });
@@ -16,17 +17,15 @@
 <nav>
   <span class="app-name">Crypto Wizard</span>
   <ul>
-    {#if user}
-      {#await getScore(user) then { userId, score }}
-        <li>
-          <span class="label">welcome</span><strong>{userId}</strong>
-        </li>
-        <li>|</li>
-        <li>
-          <strong>score</strong>
-          {score}
-        </li>
-      {/await}
+    {#if user && $score}
+      <li>
+        <span class="label">welcome</span><strong>{user}</strong>
+      </li>
+      <li>|</li>
+      <li>
+        <strong>score</strong>
+        {$score.score}
+      </li>
     {/if}
     <li>|</li>
     <li><a on:click|preventDefault={signout} href="/">sign out</a></li>

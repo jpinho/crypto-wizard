@@ -1,11 +1,18 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { getPrice, placeBet, evaluateBet } from '../services/BetService';
-  import type { PriceReading, BetResult } from '../services/BetService';
+  import { onMount, getContext } from 'svelte';
+  import type { Writable } from 'svelte/store';
+  import {
+    getPrice,
+    placeBet,
+    evaluateBet,
+    getScore,
+  } from '../services/BetService';
+  import type { PriceReading, BetResult, UserScore } from '../services/BetService';
   import Chronograph from '../components/Chronograph.svelte';
 
   const UPDATE_INTERVAL_SECS = 30;
 
+  const scoreStore: Writable<UserScore> = getContext('score');
   let user: string;
   let price: PriceReading;
   let lastBetResult: BetResult;
@@ -17,6 +24,8 @@
 
   onMount(async () => {
     user = localStorage.getItem('user');
+    await refreshScore();
+
     await updateCoinBoard();
 
     try {
@@ -25,6 +34,11 @@
       console.log('evaluateBet', err);
     }
   });
+
+  async function refreshScore() {
+    const score = await getScore(user);
+    $scoreStore = score;
+  }
 
   async function updateCoinBoard() {
     boardUpdateTimeout && clearTimeout(boardUpdateTimeout);
@@ -51,6 +65,7 @@
 
     try {
       lastBetResult = await evaluateBet(user);
+      await refreshScore();
       showResultsFor(10);
     } catch (err) {
       evaluateBetError = err;

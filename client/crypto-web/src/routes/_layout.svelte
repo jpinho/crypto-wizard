@@ -1,5 +1,9 @@
 <script lang="ts">
+  import { setContext } from 'svelte';
+  import { writable } from 'svelte/store';
   import Nav from '../components/Nav.svelte';
+
+  setContext('score', writable(null));
 </script>
 
 <Nav />

@@ -1,7 +1,8 @@
 <script lang="ts">
   /**
-   * source: https://codepen.io/ninjascribble/pen/rHwkK
-   * disclaimer: this chronograph was ported and converted to svelte from the code sample available on the source above.
+   * Source: https://codepen.io/ninjascribble/pen/rHwkK
+   * Disclaimer: this chronograph was ported and converted to svelte from the code sample available on the source above.
+   * I've done quite a few changes, but still, this work is not originally mine.
    */
   export let timeLeftForNextBet: number;
 </script>
