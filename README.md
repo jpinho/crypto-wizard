@@ -5,6 +5,11 @@ This repo contains:
 - **/client** – directory containing a web client that allows users to make guesses on whether the market price of Bitcoin (BTC/USD) will be higher or lower after one minute
 - **/services** – a directory of micro-services containing the bet service currently
 
+## Architecture
+
+![architecture](/doc/arch/architecture-highlevel.jpg)
+
+Check other API Flow Diagrams [here](/doc/architecture.md)
 ## Getting started
 
 ### Game Rules
@@ -21,8 +26,8 @@ This repo contains:
 ### Running the entire project
 
 ```bash
-chmod +x scripts/run.sh
-./scripts/run.sh
+docker compose up
+open http://localhost:5000
 ```
 
 ### API Docs
@@ -61,3 +66,11 @@ chmod +x scripts/run.sh
 
 - Unit Testing
   - **Jest & Testing Library**, both dismiss any introductions
+
+### Look & Feel
+
+#### Signup
+![signup](doc/signup.png)
+
+#### Bet UI
+![bet-ui](doc/bet-ui.png)

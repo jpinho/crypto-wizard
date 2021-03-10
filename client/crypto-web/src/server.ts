@@ -12,7 +12,7 @@ polka()
     '/api',
     proxy({
       changeOrigin: true,
-      target: 'http://localhost:3000',
+      target: process.env.PROXY_API_URL || 'http://localhost:3000',
     })
   )
   .use(
