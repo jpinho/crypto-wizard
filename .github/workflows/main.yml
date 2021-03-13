@@ -14,6 +14,7 @@ jobs:
         working-directory: ./services/bet
     env:
       READING_HMAC_SECRET: ${{secrets.READING_HMAC_SECRET}}
+      GITSHA: $(git rev-parse --short HEAD)
 
     strategy:
       matrix:
@@ -27,12 +28,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
         
+      - run: echo ${{ GITSHA }}
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test 
        
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*' -x "**node_modules**"
+
 
       - name: Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v16
@@ -42,7 +45,7 @@ jobs:
           region: eu-west-2
           application_name: CryptoWizard
           environment_name: crypto-wizard-staging
-          version_label: ${GITHUB_SHA::8}
+          version_label: ${{ GITSHA }}
           deployment_package: ./services/bet/deploy.zip
           
       - name: Deployed!
