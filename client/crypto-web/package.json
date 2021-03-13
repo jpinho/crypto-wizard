@@ -3,6 +3,7 @@
   "description": "A web client that allows users to make guesses on whether the market price of Bitcoin (BTC/USD) will be higher or lower after one minute",
   "version": "1.0.0",
   "scripts": {
+    "clean": "rm -rf __sapper__",
     "dev": "sapper dev",
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
