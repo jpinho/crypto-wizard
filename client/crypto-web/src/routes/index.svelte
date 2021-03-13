@@ -1,5 +1,4 @@
 <script lang="ts">
-  import yoda from 'images/yoda-coin.jpg';
   import { onMount } from 'svelte';
   let user: string;
 
@@ -23,7 +22,7 @@
 <div class="splash">
   <h1>Welcome aboard the Crypto Roller Coaster!</h1>
   <div class="image">
-    <img src={yoda} width="100%" alt="yoda" />
+    <img src='yoda-coin.jpg' width="100%" alt="yoda" />
   </div>
 </div>
 
