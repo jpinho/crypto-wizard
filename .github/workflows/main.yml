@@ -42,5 +42,5 @@ jobs:
           region: eu-west-2
           application_name: CryptoWizard
           environment_name: crypto-wizard-staging
-          version_label: $(git rev-parse --short "$GITHUB_SHA")
+          version_label: ${GITHUB_SHA::8}
           deployment_package: deploy.zip
