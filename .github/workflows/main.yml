@@ -32,7 +32,7 @@ jobs:
       - run: npm test 
        
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
+        run: zip -r deploy.zip . -x '*.git*' -x "**node_modules**"
 
       - name: Beanstalk Deploy
         uses: einaregilsson/beanstalk-deploy@v16
@@ -44,3 +44,6 @@ jobs:
           environment_name: crypto-wizard-staging
           version_label: ${GITHUB_SHA::8}
           deployment_package: deploy.zip
+          
+      - name: Deployed!
+        run: echo App deployed to ELB          
