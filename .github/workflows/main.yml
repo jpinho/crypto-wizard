@@ -32,7 +32,7 @@ jobs:
       - run: npm test 
        
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*' -x "**node_modules**"
+        run: zip -r deploy.zip . -x '*.git*'
 
       - name: Get App Version
         id: vars
