@@ -4,7 +4,7 @@ import price from './controllers/price';
 import user from './controllers/user';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use((req, __, next) => {
   console.log(`Request received | ${req.method} ${req.path} ${req.body || ''}`);

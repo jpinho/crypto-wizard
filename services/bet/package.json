@@ -5,7 +5,8 @@
   "main": "dist/app.js",
   "scripts": {
     "dev": "nodemon --exec ts-node src/app.ts --watch src",
-    "start": "tsc && node dist/app.js",
+    "build": "tsc",
+    "start": "npm run build && node dist/app.js",
     "tdd": "npm run test -- --watch --verbose",
     "test": "LOG_LEVEL=silent jest --runInBand",
     "test:coverage": "npm run test -- --coverage"
