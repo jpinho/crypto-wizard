@@ -5,13 +5,13 @@
   onMount(() => {
     if (localStorage.getItem('user') !== null) {
       const currUser = localStorage.getItem('user');
-      window.location = `/${currUser}`;
+      window.location = `/bet`;
     }
   });
 
   function onSubmit() {
     window.localStorage.setItem('user', user);
-    window.location = `/${user}`;
+    window.location = `/bet`;
   }
 </script>
 
@@ -22,7 +22,7 @@
 <div class="splash">
   <h1>Welcome aboard the Crypto Roller Coaster!</h1>
   <div class="image">
-    <img src='yoda-coin.jpg' width="100%" alt="yoda" />
+    <img src="yoda-coin.jpg" width="100%" alt="yoda" />
   </div>
 </div>
 

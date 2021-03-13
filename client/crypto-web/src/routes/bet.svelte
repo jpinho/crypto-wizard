@@ -24,8 +24,9 @@
 
   onMount(async () => {
     user = localStorage.getItem('user');
-    await refreshScore();
+    if (!user) window.location = '/';
 
+    await refreshScore();
     await updateCoinBoard();
 
     try {

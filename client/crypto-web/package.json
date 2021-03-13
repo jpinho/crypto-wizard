@@ -6,7 +6,7 @@
     "clean": "rm -rf __sapper__",
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "export": "sapper export --legacy --entry sitemap",
     "start": "npm run build && node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper",
     "tdd": "npm run test -- --watch --verbose",
