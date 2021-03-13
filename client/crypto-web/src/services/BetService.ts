@@ -1,3 +1,5 @@
+const API_HOST = process.env.API_HOST;
+
 export interface UserScore {
   userId: string;
   score: number;
@@ -35,11 +37,11 @@ const handleOrThrow = async (res: Response) => {
 };
 
 export function getScore(userId: string): Promise<UserScore> {
-  return fetch(`/api/user/${userId}/score`).then(handleOrThrow);
+  return fetch(`${API_HOST}/api/user/${userId}/score`).then(handleOrThrow);
 }
 
 export function getPrice(): Promise<PriceReading> {
-  return fetch('/api/price').then(handleOrThrow);
+  return fetch('${API_HOST}/api/price').then(handleOrThrow);
 }
 
 export function placeBet(
@@ -47,7 +49,7 @@ export function placeBet(
   betHigh: boolean,
   betPrice: PriceReading
 ): Promise<BetResult> {
-  return fetch('/api/bet', {
+  return fetch('${API_HOST}/api/bet', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -62,7 +64,7 @@ export function placeBet(
   }).then(handleOrThrow);
 }
 export function evaluateBet(userId: string): Promise<BetResult> {
-  return fetch(`/api/bet/${userId}/evaluate`, {
+  return fetch(`${API_HOST}/api/bet/${userId}/evaluate`, {
     method: 'PATCH',
     headers: {
       Accept: 'application/json',

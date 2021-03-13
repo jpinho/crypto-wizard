@@ -14,6 +14,7 @@ export default function buildRouter(): Router {
       if (err instanceof BetServiceError) {
         res.status(400).send(err);
       } else {
+        console.log('Service exception: ', err);
         res.status(500).send({
           message: `Internal failure while evaluating bet results for user ${userId}`,
         });

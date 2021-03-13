@@ -10,6 +10,7 @@ export default function buildRouter(): Router {
       const reading = await getCurrentBpiPrice();
       res.send(signedReading(reading));
     } catch(err) {
+      console.log('Service exception: ', err);
       res.status(500).send(err);
     }
   });

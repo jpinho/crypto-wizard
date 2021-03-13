@@ -30,7 +30,8 @@ export default {
 				preventAssignment: true,
 				values:{
 					'process.browser': true,
-					'process.env.NODE_ENV': JSON.stringify(mode)
+					'process.env.NODE_ENV': JSON.stringify(mode),
+          'process.env.API_HOST': JSON.stringify(process.env.API_HOST)
 				},
 			}),
 			svelte({
