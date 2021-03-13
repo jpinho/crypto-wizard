@@ -10,10 +10,12 @@ services:
     environment:
       PORT: 5000
       PROXY_API_URL: http://bet-service:3000
+    entrypoint: "npm run dev"
     links:
       - 'bet-service'
     ports:
       - "5000:5000"
+      - "10000:10000"
 
   bet-service:
     working_dir: /app
