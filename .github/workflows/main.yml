@@ -43,7 +43,7 @@ jobs:
           application_name: CryptoWizard
           environment_name: crypto-wizard-staging
           version_label: ${GITHUB_SHA::8}
-          deployment_package: deploy.zip
+          deployment_package: ./services/bet/deploy.zip
           
       - name: Deployed!
         run: echo App deployed to ELB          
