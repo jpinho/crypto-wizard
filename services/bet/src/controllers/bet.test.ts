@@ -1,6 +1,6 @@
 import { mocked } from 'ts-jest/utils';
 import request from 'supertest';
-import express, { json } from 'express';
+import express, { json, Express } from 'express';
 import bet from './bet';
 import { UserBet, placeBet } from '../domain/bet';
 import BetServiceError from '../domain/error/BetServiceException';
@@ -9,9 +9,6 @@ jest.useFakeTimers('modern');
 jest.setSystemTime(1615329755328);
 jest.mock('../client/coinDesk');
 jest.mock('../domain/bet');
-
-const app = express();
-app.use('/api/bet', json(), bet());
 
 const goodBet: UserBet = {
   userId: 'johncena',
@@ -38,8 +35,12 @@ const badSignatureBet: UserBet = {
 };
 
 describe('/api/bet', () => {
+  let app: Express;
+
   beforeEach(() => {
     jest.clearAllMocks();
+    app = express();
+    app.use('/api/bet', json(), bet());
   });
 
   describe('post /', () => {
@@ -57,7 +58,7 @@ describe('/api/bet', () => {
           sign: 'badsignature',
           time: '2021-03-09T23:09:41.711Z',
         },
-        betTime: '2021-03-09T23:09:41.711Z'
+        betTime: '2021-03-09T23:09:41.711Z',
       };
       await request(app)
         .post('/api/bet')
@@ -79,12 +80,9 @@ describe('/api/bet', () => {
       mocked(placeBet).mockImplementationOnce(() => {
         throw { message: 'computer says no, infrastructure exception' };
       });
-      await request(app)
-        .post('/api/bet')
-        .send(badSignatureBet)
-        .expect(500, {
-          message: 'Internal failure while placing bet for user mcgregor',
-        });
+      await request(app).post('/api/bet').send(badSignatureBet).expect(500, {
+        message: 'Internal failure while placing bet for user mcgregor',
+      });
     });
   });
 });
