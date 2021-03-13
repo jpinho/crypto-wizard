@@ -12,6 +12,8 @@ jobs:
     defaults:
       run:
         working-directory: ./services/bet
+    env:
+      READING_HMAC_SECRET: ${{secrets.READING_HMAC_SECRET}}
 
     strategy:
       matrix:
