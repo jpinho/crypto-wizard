@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
         
-      - run: echo ${{ GITSHA }}
+      - run: echo ${{ env.GITSHA }}
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test 
@@ -45,7 +45,7 @@ jobs:
           region: eu-west-2
           application_name: CryptoWizard
           environment_name: crypto-wizard-staging
-          version_label: ${{ GITSHA }}
+          version_label: ${{ env.GITSHA }}
           deployment_package: ./services/bet/deploy.zip
           
       - name: Deployed!
