@@ -1,4 +1,4 @@
-const API_HOST = process.env.API_HOST;
+const API_HOST = process.env.API_HOST || '';
 
 export interface UserScore {
   userId: string;
@@ -41,7 +41,7 @@ export function getScore(userId: string): Promise<UserScore> {
 }
 
 export function getPrice(): Promise<PriceReading> {
-  return fetch('${API_HOST}/api/price').then(handleOrThrow);
+  return fetch(`${API_HOST}/api/price`).then(handleOrThrow);
 }
 
 export function placeBet(
@@ -49,7 +49,7 @@ export function placeBet(
   betHigh: boolean,
   betPrice: PriceReading
 ): Promise<BetResult> {
-  return fetch('${API_HOST}/api/bet', {
+  return fetch(`${API_HOST}/api/bet`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',

@@ -15,7 +15,7 @@
 </script>
 
 <nav>
-  <span class="app-name">Crypto Wizard</span>
+  <a class="app-name" href="/">Crypto Wizard</a>
   <ul>
     {#if user && $score}
       <li>
@@ -35,6 +35,7 @@
 <style>
   .app-name {
     font-weight: 400;
+    text-decoration: none;
   }
 
   nav {
