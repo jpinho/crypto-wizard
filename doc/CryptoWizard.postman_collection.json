@@ -22,12 +22,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/price",
-					"protocol": "http",
+					"raw": "{{API_HOST}}/api/price",
 					"host": [
-						"localhost"
+						"{{API_HOST}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"price"
@@ -62,12 +60,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/bet",
-					"protocol": "http",
+					"raw": "{{API_HOST}}/api/bet",
 					"host": [
-						"localhost"
+						"{{API_HOST}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"bet"
@@ -82,12 +78,10 @@
 				"method": "PATCH",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/bet/jpinho/evaluate",
-					"protocol": "http",
+					"raw": "{{API_HOST}}/api/bet/jpinho/evaluate",
 					"host": [
-						"localhost"
+						"{{API_HOST}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"bet",
@@ -104,12 +98,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/user/jpinho/score",
-					"protocol": "http",
+					"raw": "{{API_HOST}}/api/user/jpinho/score",
 					"host": [
-						"localhost"
+						"{{API_HOST}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"user",
