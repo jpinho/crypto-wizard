@@ -37,7 +37,15 @@
     box-sizing: border-box;
   }
 
+  @media (min-width: 768px) {
+    .timer-group {
+      transform: none;
+    }
+  }
+
   .timer-group {
+    transform: scale(0.5);
+    left: -20%;
     color: #fff;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     height: 400px;
