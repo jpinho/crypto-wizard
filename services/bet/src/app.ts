@@ -2,12 +2,17 @@ import express, { json } from 'express';
 import bet from './controllers/bet';
 import price from './controllers/price';
 import user from './controllers/user';
+import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
+
 app.use((req, __, next) => {
-  console.log(`Request received || ${req.method} ${req.path} ${req.body || ''}`);
+  console.log(
+    `Request received || ${req.method} ${req.path} ${req.body || ''}`
+  );
   next();
 });
 
