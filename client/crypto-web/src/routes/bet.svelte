@@ -176,6 +176,7 @@
 
 <style>
   .coin-board {
+    box-sizing: border-box;
     width: 100%;
     padding: 1rem;
     border-radius: 5px;
@@ -217,6 +218,7 @@
     padding: 1rem;
     margin-top: 20px;
     width: 100%;
+    box-sizing: border-box;
   }
 
   .info {
