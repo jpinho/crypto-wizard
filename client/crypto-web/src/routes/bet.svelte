@@ -105,11 +105,11 @@
       }).format(price.rate)}
     </div>
     <div class="meta">
-      <div>
+      <div class="update-meta">
         updated: {new Date(price.time).toLocaleString()} |
-        <a href="/" on:click|preventDefault={updateCoinBoard}>force refresh</a>
+        <a class="refresh" href="/" on:click|preventDefault={updateCoinBoard}>force refresh</a>
       </div>
-      <div>
+      <div class="powered">
         (Powered by <a
           href="https://www.coindesk.com/price/bitcoin"
           target="_blank"><strong>CoinDesk</strong></a
@@ -280,5 +280,28 @@
 
   .results .msg {
     padding: 10px;
+  }
+
+  .update-meta {
+    text-align: left;
+  }
+
+  .refresh {
+    display: block;
+  }
+
+  .powered {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .powered a {
+    padding-left: 5px;
+  }
+
+  @media (min-width: 768px) {
+    .refresh {
+      display: inline;
+    }
   }
 </style>
