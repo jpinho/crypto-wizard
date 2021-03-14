@@ -1,6 +1,6 @@
 # Crypto Wizard
 
-The live version of this application is available at [https://cryptowizard.pandemicode.dev](https://cryptowizard.pandemicode.dev).
+The live version of this application is available at [https://crypto-wizard.pandemicode.dev](https://crypto-wizard.pandemicode.dev).
 
 This repo contains:
 
