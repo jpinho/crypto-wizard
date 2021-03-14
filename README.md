@@ -1,19 +1,11 @@
 # Crypto Wizard
 
+The live version of this application is available at [https://cryptowizard.pandemicode.dev](https://cryptowizard.pandemicode.dev).
+
 This repo contains:
 
 - **/client** – directory containing a web client that allows users to make guesses on whether the market price of Bitcoin (BTC/USD) will be higher or lower after one minute
 - **/services** – a directory of micro-services containing the bet service currently
-
-## Architecture
-
-![architecture](/doc/arch/architecture-highlevel.jpg)
-
-Check other API Flow Diagrams [here](/doc/architecture.md)
-
-### API Docs
-
-- [Bet Service Postman Collection](CryptoWizard.postman_collection.json)
 
 ## Getting started
 
@@ -90,6 +82,25 @@ To run the unit tests on any project just type `npm test`.
     - The implementation is scalable for further iterations and feature development, where a JobScheduler could be a new feature
     - Given the saved complexity the application is able to go live sooner, letting us gather early feedback to shape the future _defacto_ solution
 
+## Architecture
+
+![architecture](/doc/arch/architecture-highlevel.jpg)
+
+Check other API Flow Diagrams [here](/doc/architecture.md)
+
+### Infrastructure
+
+#### Overview
+
+![infrastructure](doc/infra/infra.jpg)
+
+#### Continuous Deployment Pipelines
+
+![cd-pipelines](doc/infra/cd-pipelines.jpg)
+
+### API Docs
+
+- [Bet Service Postman Collection](CryptoWizard.postman_collection.json)
 ### Tech Stack
 
 - Bet Service
@@ -102,6 +113,11 @@ To run the unit tests on any project just type `npm test`.
 
 - Unit Testing
   - **Jest & Testing Library**, both dismiss any introductions
+
+- Continuous Deployment
+  - For Services: GitHub Actions build, run unit tests and deploy to AWS Elastic Beanstalk
+
+  - For Web Client: Vercel pulls via git hooks and deploys to it's own cloud
 
 ### UI Look & Feel
 
