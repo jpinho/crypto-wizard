@@ -7,7 +7,11 @@
     evaluateBet,
     getScore,
   } from '../services/BetService';
-  import type { PriceReading, BetResult, UserScore } from '../services/BetService';
+  import type {
+    PriceReading,
+    BetResult,
+    UserScore,
+  } from '../services/BetService';
   import Chronograph from '../components/Chronograph.svelte';
 
   const UPDATE_INTERVAL_SECS = 30;
@@ -107,7 +111,9 @@
     <div class="meta">
       <div class="update-meta">
         updated: {new Date(price.time).toLocaleString()} |
-        <a class="refresh" href="/" on:click|preventDefault={updateCoinBoard}>force refresh</a>
+        <a class="refresh" href="/" on:click|preventDefault={updateCoinBoard}
+          >force refresh</a
+        >
       </div>
       <div class="powered">
         (Powered by <a
@@ -119,7 +125,10 @@
   {/if}
 </div>
 
-<form on:submit|preventDefault={() => null}>
+<form
+  on:submit|preventDefault={() => null}
+  class:notimer={timeLeftForNextBet === null}
+>
   {#if timeLeftForNextBet === null}
     <div class="info">
       Use the "up" and "down" vote buttons below to place your bet. You get a
@@ -219,6 +228,11 @@
     margin-top: 20px;
     width: 100%;
     box-sizing: border-box;
+    min-height: 400px;
+  }
+
+  form.notimer {
+    min-height: 200px;
   }
 
   .info {
@@ -302,6 +316,21 @@
   @media (min-width: 768px) {
     .refresh {
       display: inline;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .meta {
+      flex-direction: column;
+      align-items: end;
+    }
+
+    .powered {
+      margin-top: 20px;
+    }
+
+    .actions button {
+      margin: 0 1.3rem;
     }
   }
 </style>

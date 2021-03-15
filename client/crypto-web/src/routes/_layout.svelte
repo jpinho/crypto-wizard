@@ -16,9 +16,18 @@
 <style>
   header,
   main {
-    min-width: 495px;
+    min-width: 375px;
     box-sizing: border-box;
   }
+
+  @media (max-width: 500px) {
+    header,
+    main {
+      max-width: 375px;
+      width: 375px;
+    }
+  }
+
   main {
     position: relative;
     max-width: 56em;
