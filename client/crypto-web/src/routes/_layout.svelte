@@ -21,9 +21,7 @@
   }
 
   @media (max-width: 500px) {
-    header,
     main {
-      max-width: 375px;
       width: 375px;
     }
   }

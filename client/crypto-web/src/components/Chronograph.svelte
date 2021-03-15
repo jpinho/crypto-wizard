@@ -65,7 +65,7 @@
   @media (max-width: 500px) {
     .timer-group {
       position: absolute;
-      left: 0;
+      left: -10px;
     }
   }
 
