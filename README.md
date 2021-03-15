@@ -1,6 +1,6 @@
 # Crypto Wizard
 
-![build](https://github.com/jpinho/crypto-wizard/actions/workflows/main.yml/badge.svg)
+![build](https://github.com/jpinho/crypto-wizard/actions/workflows/main.yml/badge.svg) ![Vercel](https://vercelbadge.vercel.app/api/jpinho/crypto-wizard)
 
 
 The live version of this application is available at [https://crypto-wizard.pandemicode.dev](https://crypto-wizard.pandemicode.dev).
