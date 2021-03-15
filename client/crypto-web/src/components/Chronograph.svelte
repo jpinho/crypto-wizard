@@ -1,10 +1,35 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+
   /**
    * Source: https://codepen.io/ninjascribble/pen/rHwkK
    * Disclaimer: this chronograph was ported and converted to svelte from the code sample available on the source above.
    * I've done quite a few changes, but still, this work is not originally mine.
    */
   export let timeLeftForNextBet: number;
+  let resize;
+
+  onMount(() => {
+    const wrapper = document.getElementById('timeWrapper');
+    const margin = window.innerWidth > 500 ? 200 : 400;
+    const minScale = 0.8;
+
+    resize = () => {
+      const containerWidthSpace = wrapper.clientWidth + margin;
+
+      wrapper.style.transform = `scale(${Math.min(
+        minScale,
+        window.innerWidth / containerWidthSpace
+      )})`;
+    };
+
+    setupResize();
+  });
+
+  function setupResize() {
+    window.addEventListener('resize', resize);
+    resize();
+  }
 </script>
 
 <svelte:head>
@@ -14,7 +39,7 @@
   />
 </svelte:head>
 
-<div class="timer-group">
+<div id="timeWrapper" class="timer-group">
   <div class="timer hour">
     <div class="hand"><span /></div>
     <div class="hand"><span /></div>
@@ -37,15 +62,8 @@
     box-sizing: border-box;
   }
 
-  @media (min-width: 768px) {
-    .timer-group {
-      transform: none;
-    }
-  }
-
   .timer-group {
-    transform: scale(0.5);
-    left: -20%;
+    transform: scale(0.8);
     color: #fff;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     height: 400px;
