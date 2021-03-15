@@ -1,5 +1,8 @@
 # Crypto Wizard
 
+![build](https://github.com/jpinho/crypto-wizard/actions/workflows/main.yml/badge.svg)
+
+
 The live version of this application is available at [https://crypto-wizard.pandemicode.dev](https://crypto-wizard.pandemicode.dev).
 
 This repo contains:
