@@ -3,7 +3,7 @@
 ![build](https://github.com/jpinho/crypto-wizard/actions/workflows/main.yml/badge.svg) ![Vercel](https://vercelbadge.vercel.app/api/jpinho/crypto-wizard)
 
 
-The live version of this application is available at [https://crypto-wizard.pandemicode.dev](https://crypto-wizard.pandemicode.dev).
+The live version of this application was available until 20/03/2021 at [https://crypto-wizard.pandemicode.dev](https://crypto-wizard.pandemicode.dev) and was taken down to host my blog permanently.
 
 This repo contains:
 
